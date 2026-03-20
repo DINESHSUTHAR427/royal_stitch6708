@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 const links = [
   { href: "/", label: "Home" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/booking", label: "Custom Tailoring" },
+  { href: "https://wa.me/919063124594", label: "Custom Tailoring", external: true },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -19,6 +19,7 @@ export function Navbar() {
 
   // ✅ Initial theme load
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
 
     const stored = localStorage.getItem("theme");
@@ -75,7 +76,7 @@ export function Navbar() {
         {/* Desktop */}
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="text-xs uppercase text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">
+            <Link key={link.href} href={link.href} target={link.external ? "_blank" : undefined} className="text-xs uppercase text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">
               {link.label}
             </Link>
           ))}
@@ -104,7 +105,7 @@ export function Navbar() {
       {open && (
         <div className="md:hidden p-4">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} onClick={() => setOpen(false)}>
+            <Link key={link.href} href={link.href} target={link.external ? "_blank" : undefined} onClick={() => setOpen(false)}>
               {link.label}
             </Link>
           ))}

@@ -4,8 +4,9 @@ import type { Product } from "@/generated/prisma";
 
 type ProductWithMeta = Pick<
   Product,
-  "id" | "title" | "description" | "category" | "price" | "image"
+  "id" | "title" | "description" | "category" | "image"
 >;
+
 
 interface ProductCardProps {
   product: ProductWithMeta;
@@ -39,9 +40,6 @@ export function ProductCard({ product }: ProductCardProps) {
         </h3>
         <p className="line-clamp-2 text-xs leading-relaxed text-zinc-500">
           {product.description}
-        </p>
-        <p className="mt-1 text-sm font-medium text-zinc-900 dark:text-zinc-100">
-          ₹{product.price.toString()}
         </p>
       </div>
     </Link>

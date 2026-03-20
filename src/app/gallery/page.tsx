@@ -19,6 +19,7 @@ export default async function GalleryPage({ searchParams }: GalleryPageProps) {
   const q = params.q?.trim() ?? "";
   const category = params.category;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const where: any = {};
 
   if (q) {

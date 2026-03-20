@@ -15,22 +15,22 @@ async function fetchInstagramPosts(): Promise<InstagramPost[]> {
     return [
       {
         id: "placeholder-1",
-        media_url: "/insta-1.jpg",
+          media_url:"https://res.cloudinary.com/dfwjtjlaq/image/upload/v1773987876/Threads_of_Love_DM_to_order_now_urs._Another_level_of_happiness_while_we_see_our_love_in_iqsle5.webp",
         permalink: "https://www.instagram.com/royal_stitch6708/",
       },
       {
         id: "placeholder-2",
-        media_url: "/insta-2.jpg",
+        media_url:"https://res.cloudinary.com/dfwjtjlaq/image/upload/v1773987942/DM_to_order_%EF%B8%8F_%EF%B8%8F_every_stitch_add_love_in_it_%EF%B8%8F_%EF%B8%8F_memorable_gifts_to_ur_loved_ones_n_trendy_ohlr8v.webp",
         permalink: "https://www.instagram.com/royal_stitch6708/",
       },
       {
         id: "placeholder-3",
-        media_url: "/insta-3.jpg",
+        media_url:"https://res.cloudinary.com/dfwjtjlaq/image/upload/v1773988002/Bridal_mehendi_designs_%EF%B8%8F_DM_to_booking_now._mehendi_art_656_..._mehendilovers_%EF%B8%8F_br_na3qw8.webp",
         permalink: "https://www.instagram.com/royal_stitch6708/",
       },
       {
         id: "placeholder-4",
-        media_url: "/insta-4.jpg",
+        media_url:"https://res.cloudinary.com/dfwjtjlaq/image/upload/v1773988030/Turning_fabric_into_art_one_stitch_at_a_time_DM_TO_ORDER_%EF%B8%8F_NOW_urs....._Handmade_by_r_tgsafs.webp",
         permalink: "https://www.instagram.com/royal_stitch6708/",
       },
     ];
@@ -59,8 +59,8 @@ export async function InstagramGrid() {
   if (!posts.length) return null;
 
   return (
-    <section className="border-b border-zinc-900/5 bg-zinc-50/80 py-10 dark:bg-zinc-950/40 md:py-14">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+    <section className="py-10 border-b border-zinc-900/5 bg-zinc-50/80 dark:bg-zinc-950/40 md:py-14">
+      <div className="max-w-6xl px-4 mx-auto md:px-6">
         <div className="flex items-end justify-between gap-4">
           <div>
             <p className="text-[0.65rem] font-medium uppercase tracking-[0.3em] text-zinc-500">
@@ -80,14 +80,14 @@ export async function InstagramGrid() {
           </a>
         </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 md:gap-3">
+        <div className="grid grid-cols-2 gap-2 mt-6 sm:grid-cols-3 md:grid-cols-4 md:gap-3">
           {posts.slice(0, 8).map((post) => (
             <a
               key={post.id}
               href={post.permalink}
               target="_blank"
               rel="noreferrer"
-              className="group relative aspect-square overflow-hidden rounded-2xl bg-zinc-900/80"
+              className="relative overflow-hidden group aspect-square rounded-2xl bg-zinc-900/80"
             >
               <Image
                 src={post.media_url}
@@ -96,7 +96,7 @@ export async function InstagramGrid() {
                 sizes="(min-width: 1024px) 180px, 33vw"
                 className="object-cover transition duration-500 group-hover:scale-110 group-hover:opacity-90"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-70" />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-70" />
             </a>
           ))}
         </div>

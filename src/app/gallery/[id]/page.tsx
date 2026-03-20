@@ -4,14 +4,15 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
 interface GalleryDetailPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function GalleryDetailPage({
   params,
 }: GalleryDetailPageProps) {
+  const { id } = await params;
   const product = await prisma.product.findUnique({
-    where: { id: params.id },
+    where: { id },
   });
 
   if (!product) return notFound();
@@ -46,9 +47,6 @@ export default async function GalleryDetailPage({
             <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
               {product.description}
             </p>
-            <p className="pt-2 text-base font-semibold text-zinc-900 dark:text-zinc-50">
-              Indicative price: ₹{product.price.toString()}
-            </p>
             <div className="pt-4 text-xs text-zinc-500">
               <p>
                 Each Royal Stitch piece is tailored to your measurements. Final
@@ -56,19 +54,13 @@ export default async function GalleryDetailPage({
               </p>
             </div>
             <div className="pt-4 flex flex-wrap gap-3">
-              <Link
-                href={`/booking?design=${encodeURIComponent(product.title)}`}
-                className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-50 shadow-sm transition hover:-translate-y-0.5 hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
-              >
-                Book Custom Stitch
-              </Link>
               <a
-                href={`https://wa.me/919999999999?text=${encodeURIComponent(
+                href={`https://wa.me/919063124594?text=${encodeURIComponent(
                   `Hi, I'm interested in "${product.title}" from Royal Stitch.`,
                 )}`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-700 transition hover:-translate-y-0.5 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900"
+                className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-50 shadow-sm transition hover:-translate-y-0.5 hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
               >
                 Enquire on WhatsApp
               </a>

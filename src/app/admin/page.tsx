@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 
 export default async function AdminOverviewPage() {
   const session = await getServerSession(authOptions);
@@ -12,6 +12,7 @@ export default async function AdminOverviewPage() {
   }
 
   // ❌ Not admin
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if ((session.user as any)?.role !== "ADMIN") {
     redirect("/admin/login");
   }

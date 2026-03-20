@@ -20,7 +20,9 @@ async function createProduct(formData: FormData) {
     data: {
       title,
       description,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       category: category as any,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       price: price as any,
       image,
       isFeatured,

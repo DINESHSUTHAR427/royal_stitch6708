@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 import Link from "next/link";
 
 export default async function AdminLayout({
@@ -11,6 +11,7 @@ export default async function AdminLayout({
 }) {
   const session = await getServerSession(authOptions);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if (!session || (session.user as any)?.role !== "ADMIN") {
     redirect("/admin/login");
   }

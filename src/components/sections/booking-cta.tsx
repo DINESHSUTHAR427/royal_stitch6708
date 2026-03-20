@@ -18,19 +18,13 @@ export function BookingCta() {
           </p>
         </div>
         <div className="flex flex-col gap-3 md:items-end">
-          <Link
-            href="/booking"
-            className="inline-flex items-center justify-center rounded-full bg-zinc-50 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-900 shadow-sm transition hover:-translate-y-0.5 hover:bg-zinc-200"
-          >
-            Request a Custom Stitch
-          </Link>
           <a
-            href="https://wa.me/919999999999"
+            href="https://wa.me/919063124594"
             target="_blank"
             rel="noreferrer"
-            className="text-[0.65rem] font-medium uppercase tracking-[0.3em] text-zinc-400 underline-offset-4 hover:text-zinc-100 hover:underline"
+            className="inline-flex items-center justify-center rounded-full bg-zinc-50 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-900 shadow-sm transition hover:-translate-y-0.5 hover:bg-zinc-200"
           >
-            Or chat on WhatsApp
+            Chat on WhatsApp
           </a>
         </div>
       </div>

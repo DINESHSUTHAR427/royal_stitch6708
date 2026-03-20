@@ -4,7 +4,7 @@ import HeroAnimation from "../sections/HeroAnimation";
 
 export function Hero() {
   return (
-    <section className="border-b border-zinc-900/5 bg-gradient-to-b from-zinc-50 to-zinc-100/40 py-12 dark:from-zinc-950 dark:to-zinc-900/40">
+    <section className="py-12 border-b border-zinc-900/5 bg-gradient-to-b from-zinc-50 to-zinc-100/40 dark:from-zinc-950 dark:to-zinc-900/40">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 md:grid-cols-[1.1fr,0.9fr] md:px-6 lg:gap-16">
 
         {/* LEFT CONTENT */}
@@ -31,12 +31,14 @@ export function Hero() {
 
           <HeroAnimation type="buttons" delay={0.3}>
             <div className="flex flex-wrap items-center gap-3">
-              <Link
-                href="/booking"
-                className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-50"
+              <a
+                href="https://wa.me/919063124594"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900"
               >
                 Book Custom Stitching
-              </Link>
+              </a>
 
               <Link
                 href="/gallery"
@@ -50,9 +52,9 @@ export function Hero() {
 
         {/* RIGHT IMAGE */}
         <HeroAnimation type="image" delay={0.2}>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2.25rem]">
+          <div className="relative aspect-[5/4] overflow-hidden rounded-[2.25rem]">
             <Image
-              src="/hero-look.jpg"
+              src="https://res.cloudinary.com/dfwjtjlaq/image/upload/v1773987033/hero_image_1_unkwqo.jpg"
               alt="Royal Stitch couture look"
               fill
               className="object-cover"
