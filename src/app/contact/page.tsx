@@ -1,24 +1,24 @@
 "use client";
 
 export default function ContactPage() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    const name = e.target.name.value;
-    const message = e.target.message.value;
+  const form = e.currentTarget;
 
-    const text = `Hello, my name is ${name}. ${message}`;
+  const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+  const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
 
-    const whatsappUrl = `https://wa.me/919063124594?text=${encodeURIComponent(
-      text
-    )}`;
+  const text = `Hello, my name is ${name}. ${message}`;
 
-    window.open(whatsappUrl, "_blank");
-  };
+  const whatsappUrl = `https://wa.me/919063124594?text=${encodeURIComponent(text)}`;
+
+  window.open(whatsappUrl, "_blank");
+};
 
   return (
-    <div className="border-b border-zinc-900/5 bg-background py-10 md:py-14">
-      <div className="mx-auto max-w-5xl px-4 md:px-6">
+    <div className="py-10 border-b border-zinc-900/5 bg-background md:py-14">
+      <div className="max-w-5xl px-4 mx-auto md:px-6">
         <p className="text-[0.65rem] font-medium uppercase tracking-[0.3em] text-zinc-500">
           Visit & Connect
         </p>
@@ -77,11 +77,11 @@ export default function ContactPage() {
           <div className="space-y-4">
             
             {/* ✅ FIXED GOOGLE MAP */}
-            <div className="overflow-hidden rounded-3xl border bg-zinc-100 dark:bg-zinc-900">
+            <div className="overflow-hidden border rounded-3xl bg-zinc-100 dark:bg-zinc-900">
               <iframe
                 title="Royal Stitch location"
                 src="https://www.google.com/maps?q=Chandrai,Rajasthan,307030&output=embed"
-                className="h-64 w-full border-0"
+                className="w-full h-64 border-0"
                 loading="lazy"
               />
             </div>
@@ -89,7 +89,7 @@ export default function ContactPage() {
             {/* ✅ FIXED FORM */}
             <form
               onSubmit={handleSubmit}
-              className="space-y-4 rounded-3xl border bg-zinc-50/80 p-5 dark:bg-zinc-900/40"
+              className="p-5 space-y-4 border rounded-3xl bg-zinc-50/80 dark:bg-zinc-900/40"
             >
               <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
                 Quick message
@@ -100,7 +100,7 @@ export default function ContactPage() {
                   name="name"
                   required
                   placeholder="Your name"
-                  className="h-9 w-full rounded-full border px-3 text-xs"
+                  className="w-full px-3 text-xs border rounded-full h-9"
                 />
               </div>
 
@@ -110,13 +110,13 @@ export default function ContactPage() {
                   required
                   rows={3}
                   placeholder="Share your query..."
-                  className="w-full rounded-2xl border px-3 py-2 text-xs"
+                  className="w-full px-3 py-2 text-xs border rounded-2xl"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full rounded-full bg-zinc-900 px-5 py-2 text-xs font-semibold uppercase text-white hover:bg-zinc-800"
+                className="w-full px-5 py-2 text-xs font-semibold text-white uppercase rounded-full bg-zinc-900 hover:bg-zinc-800"
               >
                 Send Message
               </button>
