@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 const links = [
   { href: "/", label: "Home" },
   { href: "/gallery", label: "Gallery" },
-  { href: "https://wa.me/919063124594", label: "Custom Tailoring", external: true },
+  { href: "https://ig.me/m/royal_stitch6708", label: "Custom Tailoring", external: true },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

@@ -55,14 +55,12 @@ export default async function GalleryDetailPage({
             </div>
             <div className="pt-4 flex flex-wrap gap-3">
               <a
-                href={`https://wa.me/919063124594?text=${encodeURIComponent(
-                  `Hi, I'm interested in "${product.title}" from Royal Stitch.`,
-                )}`}
+                href="https://ig.me/m/royal_stitch6708"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-50 shadow-sm transition hover:-translate-y-0.5 hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
               >
-                Enquire on WhatsApp
+                Enquire on Instagram
               </a>
             </div>
           </div>

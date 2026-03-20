@@ -19,12 +19,12 @@ export function BookingCta() {
         </div>
         <div className="flex flex-col gap-3 md:items-end">
           <a
-            href="https://wa.me/919063124594"
+            href="https://ig.me/m/royal_stitch6708"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center justify-center rounded-full bg-zinc-50 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-900 shadow-sm transition hover:-translate-y-0.5 hover:bg-zinc-200"
           >
-            Chat on WhatsApp
+            Chat on Instagram
           </a>
         </div>
       </div>

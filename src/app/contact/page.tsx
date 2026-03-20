@@ -1,20 +1,27 @@
 "use client";
 
 export default function ContactPage() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  const form = e.currentTarget;
+    const form = e.currentTarget;
 
-  const name = (form.elements.namedItem("name") as HTMLInputElement).value;
-  const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
+    const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+    const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
 
-  const text = `Hello, my name is ${name}. ${message}`;
+    const text = `Hello, my name is ${name}. ${message}`;
 
-  const whatsappUrl = `https://wa.me/919063124594?text=${encodeURIComponent(text)}`;
+    try {
+      await navigator.clipboard.writeText(text);
+      alert("Message copied to clipboard! Please paste it in the Instagram chat.");
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
 
-  window.open(whatsappUrl, "_blank");
-};
+    const instaUrl = `https://ig.me/m/royal_stitch6708`;
+
+    window.open(instaUrl, "_blank");
+  };
 
   return (
     <div className="py-10 border-b border-zinc-900/5 bg-background md:py-14">
@@ -63,12 +70,12 @@ export default function ContactPage() {
 
             <div className="pt-2">
               <a
-                href="https://wa.me/919063124594"
+                href="https://ig.me/m/royal_stitch6708"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex rounded-full bg-emerald-500 px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white hover:bg-emerald-400"
+                className="inline-flex rounded-full bg-pink-500 px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white hover:bg-pink-400"
               >
-                Chat on WhatsApp
+                Chat on Instagram
               </a>
             </div>
           </div>
@@ -122,7 +129,7 @@ export default function ContactPage() {
               </button>
 
               <p className="text-[0.6rem] text-zinc-500">
-                You will be redirected to WhatsApp.
+                Your message will be copied and you will be redirected to Instagram.
               </p>
             </form>
 

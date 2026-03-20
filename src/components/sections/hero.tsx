@@ -32,7 +32,7 @@ export function Hero() {
           <HeroAnimation type="buttons" delay={0.3}>
             <div className="flex flex-wrap items-center gap-3">
               <a
-                href="https://wa.me/919063124594"
+                href="https://ig.me/m/royal_stitch6708"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900"
